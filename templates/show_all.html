@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show all {{ session['ulogovani_broj_indeksa'] }}</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+        tr, th {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        tr:nth-child(even){
+            background-color: beige;
+        }
+        tr:hover{
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <h1>Show all</h1>
+    {% if 'ulogovani_id' in session %}
+        <hr>
+        <a href="/logout">Logout</a>
+        <hr>
+    {% else %}
+        <hr>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <hr>
+    {% endif %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>indeks</th>
+            <th>ime i prezime</th>
+            <th>godina rodjenja</th>
+            <th>password</th>
+            <th>prosek</th>
+            <th>broj polozenih ispita</th>
+            {% if 'ulogovani_id' in session %}
+                <th colspan="2">Opcija</th>
+            {% endif %}
+        </tr>
+        {% for korisnik in svi_korisnici %}
+
+            <tr>
+                <th>{{ korisnik[0] }}</th>
+                <th>{{ korisnik[1] }}</th>
+                <th>{{ korisnik[2] }}</th>
+                <th>{{ korisnik[3] }}</th>
+                <th>{{ korisnik[4] }}</th>
+                <th>{{ korisnik[5] }}</th>
+                <th>{{ korisnik[6] }}</th>
+                {% if 'ulogovani_id' in session %}
+                    <th><a href="/delete/{{ korisnik[0] }}">DELETE</a></th>
+                    <th><a href="/update/{{ korisnik[0] }}">UPDATE</a></th>
+                {% endif %}
+            </tr>
+
+        {% endfor %}
+    </table>
+</body>
+</html>

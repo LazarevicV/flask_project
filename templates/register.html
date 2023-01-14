@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registracija</title>
+    <style>
+        .greska {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Registracija</h1>
+    <form action="/register" method="POST">
+        <span class="greska">{{ greska }}</span>
+        <p>
+            <label for="broj_indeksa">Broj indeksa</label>
+            <input type="text" name="broj_indeksa" id="broj_indeksa" value="{{ broj_indeksa }}">
+            <span class="greska">{{ greska_broj_indeksa }}</span>
+        </p>
+        <p>
+            <label for="ime_prezime">Ime prezime</label>
+            <input type="text" name="ime_prezime" id="ime_prezime" value="{{ ime_prezime }}">
+            <span class="greska">{{ greska_ime_prezime }}</span>
+        </p>
+        <p>
+            <label for="godina_rodjenja">Godina rodjenja</label>
+            <input type="number" name="godina_rodjenja" id="godina_rodjenja" value="{{ godina_rodjenja }}">
+            <span class="greska">{{ greska_godina_rodjenja}}</span>
+        </p>
+        <p>
+            <label for="password">Sifra</label>
+            <input type="password" name="password" id="password">
+            <span class="greska">{{ greska_password }}</span>
+        </p>
+        <p>
+            <label for="confirm_password">Potvrdi sifru</label>
+            <input type="password" name="confirm_password" id="confirm_password">
+        </p>
+        <p>
+            <label for="prosek">Prosek</label>
+            <input type="number" name="prosek" id="prosek" value="{{ prosek }}">
+            <span class="greska">{{ greska_prosek }}</span>
+        </p>
+        <p>
+            <label for="broj_polozenih_Ispita">Broj polozenih ispita</label>
+            <input type="number" name="broj_polozenih_ispita" id="broj_polozenih_Ispita" value="{{ broj_polozenih_ispita }}">
+            <span class="greska">{{ greska_broj_polozenih }}</span>
+        </p>
+        <p>
+            <input type="submit" value="Register">
+        </p>
+    </form>
+</body>
+</html>

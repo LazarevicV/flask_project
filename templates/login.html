@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        .greska {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="POST">
+        <span class="greska">{{ greska }}</span>
+        <p>
+            <label for="broj_indeksa">Broj indeksa</label>
+            <input type="text" name="broj_indeksa" id="broj_indeksa">
+            <span class="greska">{{ greska_broj_indeksa }}</span>
+        </p>
+        <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+            <span class="greska">{{ greska_password }}</span>
+        </p>
+        <p>
+            <input type="submit" value="Login">
+        </p>
+    </form>
+</body>
+</html>
