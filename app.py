@@ -271,5 +271,7 @@ def update(id):
         '''
         parametri = (ime_prezime, godina_rodjenja, prosek, broj_polozenih_ispita, id)
 
+print('Hello world')
+
 if __name__ == '__main__':
     app.run(debug=True)
