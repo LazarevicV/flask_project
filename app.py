@@ -250,11 +250,12 @@ def update(id):
     if request.method == 'POST':
 
         ime_prezime = request.form.get('ime_prezime')
-        godina_rodjenja = request.form.get('datum_rodjenja')
+        godina_rodjenja = request.form.get('godina_rodjenja')
         prosek = request.form.get('prosek')
         broj_polozenih_ispita = request.form.get('broj_polozenih_ispita')
+        password = request.form.get('password')
 
-        if ime_prezime == '' or godina_rodjenja == '' or prosek == '' or broj_polozenih_ispita == '':
+        if ime_prezime == '' or godina_rodjenja == '' or prosek == '' or broj_polozenih_ispita == '' or password == '':
             return render_template(
                 'update.html',
                 ime_prezime = ime_prezime,
@@ -266,10 +267,15 @@ def update(id):
 
         sql = '''
             UPDATE korisnik
-            SET ime_prezime = ?, godina_rodjenja = ?, prosek = ?, polozeni_ispiti = ?
+            SET ime_prezime = ?, godina_rodjenja = ?, sifra = ?, prosek = ?, polozeni_ispiti = ?
             WHERE id = ?
         '''
-        parametri = (ime_prezime, godina_rodjenja, prosek, broj_polozenih_ispita, id)
+        parametri = (ime_prezime, godina_rodjenja, password, prosek, broj_polozenih_ispita, id)
+        cursor = mydb.cursor(prepared=True)
+        cursor.execute(sql, parametri)
+        mydb.commit()
+
+        return redirect(url_for('show_all'))
 
 if __name__ == '__main__':
     app.run(debug=True)

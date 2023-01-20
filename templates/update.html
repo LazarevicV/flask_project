@@ -10,21 +10,21 @@
     </style>
 </head>
 <body>
-    <h1>Update {{ id }}</h1>
-    <form action="/update/{{ id }}">
+    <h1>Update {{ korisnik[0] }}</h1>
+    <form action="/update/{{ korisnik[0] }}" method="POST">
         <span class="greska">{{ greska }}</span>
         <p>
             <label for="broj_indeksa">Broj indeksa</label>
-            <input type="text" name="broj_indeksa" id="broj_indeksa" value="{{ broj_indeksa }}" readonly>
+            <input type="text" name="broj_indeksa" id="broj_indeksa" value="{{ korisnik[1] }}" readonly>
         </p>
         <p>
             <label for="ime_prezime">Ime prezime</label>
-            <input type="text" name="ime_prezime" id="ime_prezime" value="{{ ime_prezime }}">
+            <input type="text" name="ime_prezime" id="ime_prezime" value="{{ korisnik[2] }}">
             <span class="greska">{{ greska_ime_prezime }}</span>
         </p>
         <p>
             <label for="godina_rodjenja">godina rodjenja</label>
-            <input type="number" name="godina_rodjenja" id="godina_rodjenja" value="{{ godina_rodjenja }}">
+            <input type="number" name="godina_rodjenja" id="godina_rodjenja" value="{{ korisnik[3] }}">
             <span class="greska">{{ greska_godina_rodjenja}}</span>
         </p>
         <p>
@@ -34,12 +34,12 @@
         </p>
         <p>
             <label for="prosek">prosek</label>
-            <input type="number" name="prosek" id="prosek" value="{{ prosek }}">
+            <input type="number" name="prosek" id="prosek" value="{{ korisnik[5] }}">
             <span class="greska">{{ greska_prosek }}</span>
         </p>
         <p>
             <label for="broj_polozenih_ispita">broj polozenih ispita</label>
-            <input type="number" name="broj_polozenih_ispita" id="broj_polozenih_ispita" value="{{ broj_polozenih_ispita }}">
+            <input type="number" name="broj_polozenih_ispita" id="broj_polozenih_ispita" value="{{ korisnik[6] }}">
             <span class="greska">{{ greska_broj_polozenih_ispita }}</span>
         </p>
         <p>
